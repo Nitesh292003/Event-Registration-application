@@ -28,9 +28,9 @@ RSpec.describe User, type: :model do
   it { should have_many(:discount_code_transactions) }
 
   context 'validations for email' do
-    it 'should not be duplicate' do
+    it 'should not allow duplicate emails (case-insensitive)' do
       create(:user, email: 'nitesh112@gmail.com')
-      duplicate_email_user = build(:user, email: 'nitesh112@gmail.com')
+      duplicate_email_user = build(:user, email: 'NITESH112@gmail.com') 
       expect(duplicate_email_user).not_to be_valid
       expect(duplicate_email_user.errors[:email]).to include('is already in use by another user')
     end

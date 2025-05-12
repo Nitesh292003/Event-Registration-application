@@ -3797,3 +3797,921 @@ FOREIGN KEY ("role_id")
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "discount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "discount_code_transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "discount_code_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_discount_code_id" ON "discount_code_transactions" ("discount_code_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_event_id" ON "discount_code_transactions" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_user_id" ON "discount_code_transactions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "discount_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "discount_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "status" varchar DEFAULT 'active', "event_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_discount_codes_on_event_id" ON "discount_codes" ("event_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_discount_codes_on_user_id" ON "discount_codes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "disocunt_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "disocunt_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "event_id" integer, "user_id" integer, "status" varchar DEFAULT 'active', "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_disocunt_codes_on_event_id" ON "disocunt_codes" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_disocunt_codes_on_user_id" ON "disocunt_codes" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "event_bookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "event_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "number_of_tickets" integer NOT NULL, "status" varchar DEFAULT 'pending', "booking_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "total_price" decimal(10,2))[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_event_bookings_on_event_id" ON "event_bookings" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_event_bookings_on_user_id" ON "event_bookings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "event_types"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "event_types" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_type_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organizer_name" varchar, "event_name" varchar, "description" varchar, "event_date" datetime(6), "event_end_date" datetime(6), "start_time" datetime(6), "end_time" datetime(6), "capacity" integer, "registered_count" integer DEFAULT 0, "base_price" integer, "early_bird_price" integer, "early_bird_end_time" datetime(6), "status" varchar DEFAULT 'upcoming', "user_id" integer, "venue_id" integer, "event_type_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_event_type_id" ON "events" ("event_type_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_user_id" ON "events" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id_and_event_type_id" ON "events" ("venue_id", "event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id" ON "events" ("venue_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "payments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "payments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_booking_id" integer NOT NULL, "total_amount" decimal(10,2), "payment_status" varchar, "payment_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_payments_on_event_booking_id" ON "payments" ("event_booking_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "roles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "roles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "role_type" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "surname" varchar, "email" varchar, "phone_no" varchar, "password_digest" varchar, "role_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_lower_email" ON "users" (LOWER(email))[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "venues"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "venues" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "venue_name" varchar, "address" varchar, "state" varchar, "country" varchar, "postal_code" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiscount_code_transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "discount_code_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_user_id" ON "adiscount_code_transactions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_event_id" ON "adiscount_code_transactions" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_discount_code_id" ON "adiscount_code_transactions" ("discount_code_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "adiscount_code_transactions" ("id","user_id","discount_code_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","discount_code_id","event_id","created_at","updated_at" FROM "discount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "discount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "discount_code_transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "discount_code_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9da8651476"
+FOREIGN KEY ("discount_code_id")
+  REFERENCES "discount_codes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_discount_code_id" ON "discount_code_transactions" ("discount_code_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_event_id" ON "discount_code_transactions" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_user_id" ON "discount_code_transactions" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "discount_code_transactions" ("id","user_id","discount_code_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","discount_code_id","event_id","created_at","updated_at" FROM "adiscount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiscount_code_transactions"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiscount_code_transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "discount_code_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_user_id" ON "adiscount_code_transactions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_event_id" ON "adiscount_code_transactions" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_discount_code_id" ON "adiscount_code_transactions" ("discount_code_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "adiscount_code_transactions" ("id","user_id","discount_code_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","discount_code_id","event_id","created_at","updated_at" FROM "discount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "discount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "discount_code_transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "discount_code_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9da8651476"
+FOREIGN KEY ("discount_code_id")
+  REFERENCES "discount_codes" ("id")
+, CONSTRAINT "fk_rails_7d554bae4d"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_discount_code_id" ON "discount_code_transactions" ("discount_code_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_event_id" ON "discount_code_transactions" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_user_id" ON "discount_code_transactions" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "discount_code_transactions" ("id","user_id","discount_code_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","discount_code_id","event_id","created_at","updated_at" FROM "adiscount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiscount_code_transactions"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiscount_code_transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "discount_code_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_user_id" ON "adiscount_code_transactions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_event_id" ON "adiscount_code_transactions" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_code_transactions_on_discount_code_id" ON "adiscount_code_transactions" ("discount_code_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "adiscount_code_transactions" ("id","user_id","discount_code_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","discount_code_id","event_id","created_at","updated_at" FROM "discount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "discount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "discount_code_transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "discount_code_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7d554bae4d"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_9da8651476"
+FOREIGN KEY ("discount_code_id")
+  REFERENCES "discount_codes" ("id")
+, CONSTRAINT "fk_rails_6814d16feb"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_discount_code_id" ON "discount_code_transactions" ("discount_code_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_event_id" ON "discount_code_transactions" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_code_transactions_on_user_id" ON "discount_code_transactions" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "discount_code_transactions" ("id","user_id","discount_code_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","discount_code_id","event_id","created_at","updated_at" FROM "adiscount_code_transactions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiscount_code_transactions"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiscount_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "status" varchar DEFAULT 'active', "event_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_codes_on_user_id" ON "adiscount_codes" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_codes_on_event_id" ON "adiscount_codes" ("event_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "adiscount_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at" FROM "discount_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "discount_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "discount_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "status" varchar DEFAULT 'active', "event_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_40230a36e6"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_codes_on_event_id" ON "discount_codes" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_codes_on_user_id" ON "discount_codes" ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "discount_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at" FROM "adiscount_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiscount_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiscount_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "status" varchar DEFAULT 'active', "event_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_codes_on_user_id" ON "adiscount_codes" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adiscount_codes_on_event_id" ON "adiscount_codes" ("event_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "adiscount_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at" FROM "discount_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "discount_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "discount_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "status" varchar DEFAULT 'active', "event_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_40230a36e6"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_5b16e1350d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_codes_on_event_id" ON "discount_codes" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_discount_codes_on_user_id" ON "discount_codes" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "discount_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","status","event_id","user_id","created_at","updated_at" FROM "adiscount_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "adiscount_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adisocunt_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "event_id" integer, "user_id" integer, "status" varchar DEFAULT 'active', "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adisocunt_codes_on_user_id" ON "adisocunt_codes" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adisocunt_codes_on_event_id" ON "adisocunt_codes" ("event_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "adisocunt_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at" FROM "disocunt_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "disocunt_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "disocunt_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "event_id" integer, "user_id" integer, "status" varchar DEFAULT 'active', "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_30ecd7ffdf"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_disocunt_codes_on_event_id" ON "disocunt_codes" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_disocunt_codes_on_user_id" ON "disocunt_codes" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "disocunt_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at" FROM "adisocunt_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "adisocunt_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adisocunt_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "event_id" integer, "user_id" integer, "status" varchar DEFAULT 'active', "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adisocunt_codes_on_user_id" ON "adisocunt_codes" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_adisocunt_codes_on_event_id" ON "adisocunt_codes" ("event_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "adisocunt_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at" FROM "disocunt_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "disocunt_codes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "disocunt_codes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "discount_percentage" integer, "start_date" datetime(6), "end_date" datetime(6), "max_uses" integer, "used_count" integer DEFAULT 0, "event_id" integer, "user_id" integer, "status" varchar DEFAULT 'active', "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_30ecd7ffdf"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_b8ca165f41"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_disocunt_codes_on_event_id" ON "disocunt_codes" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_disocunt_codes_on_user_id" ON "disocunt_codes" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "disocunt_codes" ("id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at")
+                     SELECT "id","code","discount_percentage","start_date","end_date","max_uses","used_count","event_id","user_id","status","created_at","updated_at" FROM "adisocunt_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "adisocunt_codes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevent_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "number_of_tickets" integer NOT NULL, "status" varchar DEFAULT 'pending', "booking_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "total_price" decimal(10,2))[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevent_bookings_on_user_id" ON "aevent_bookings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevent_bookings_on_event_id" ON "aevent_bookings" ("event_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aevent_bookings" ("id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price")
+                     SELECT "id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price" FROM "event_bookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "event_bookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "event_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "number_of_tickets" integer NOT NULL, "status" varchar DEFAULT 'pending', "booking_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "total_price" decimal(10,2), CONSTRAINT "fk_rails_4c180cc678"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_event_bookings_on_event_id" ON "event_bookings" ("event_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_event_bookings_on_user_id" ON "event_bookings" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "event_bookings" ("id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price")
+                     SELECT "id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price" FROM "aevent_bookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aevent_bookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevent_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "number_of_tickets" integer NOT NULL, "status" varchar DEFAULT 'pending', "booking_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "total_price" decimal(10,2))[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aevent_bookings_on_user_id" ON "aevent_bookings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevent_bookings_on_event_id" ON "aevent_bookings" ("event_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aevent_bookings" ("id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price")
+                     SELECT "id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price" FROM "event_bookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "event_bookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "event_bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "number_of_tickets" integer NOT NULL, "status" varchar DEFAULT 'pending', "booking_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "total_price" decimal(10,2), CONSTRAINT "fk_rails_4c180cc678"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_41722dab8f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_event_bookings_on_event_id" ON "event_bookings" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_event_bookings_on_user_id" ON "event_bookings" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "event_bookings" ("id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price")
+                     SELECT "id","user_id","event_id","number_of_tickets","status","booking_date","created_at","updated_at","total_price" FROM "aevent_bookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aevent_bookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevents" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organizer_name" varchar, "event_name" varchar, "description" varchar, "event_date" datetime(6), "event_end_date" datetime(6), "start_time" datetime(6), "end_time" datetime(6), "capacity" integer, "registered_count" integer DEFAULT 0, "base_price" integer, "early_bird_price" integer, "early_bird_end_time" datetime(6), "status" varchar DEFAULT 'upcoming', "user_id" integer, "venue_id" integer, "event_type_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_venue_id" ON "aevents" ("venue_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_venue_id_and_event_type_id" ON "aevents" ("venue_id", "event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_user_id" ON "aevents" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_event_type_id" ON "aevents" ("event_type_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aevents" ("id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at")
+                     SELECT "id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at" FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organizer_name" varchar, "event_name" varchar, "description" varchar, "event_date" datetime(6), "event_end_date" datetime(6), "start_time" datetime(6), "end_time" datetime(6), "capacity" integer, "registered_count" integer DEFAULT 0, "base_price" integer, "early_bird_price" integer, "early_bird_end_time" datetime(6), "status" varchar DEFAULT 'upcoming', "user_id" integer, "venue_id" integer, "event_type_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_75f14fef31"
+FOREIGN KEY ("event_type_id")
+  REFERENCES "event_types" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_event_type_id" ON "events" ("event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_user_id" ON "events" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id_and_event_type_id" ON "events" ("venue_id", "event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id" ON "events" ("venue_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "events" ("id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at")
+                     SELECT "id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at" FROM "aevents"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aevents"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevents" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organizer_name" varchar, "event_name" varchar, "description" varchar, "event_date" datetime(6), "event_end_date" datetime(6), "start_time" datetime(6), "end_time" datetime(6), "capacity" integer, "registered_count" integer DEFAULT 0, "base_price" integer, "early_bird_price" integer, "early_bird_end_time" datetime(6), "status" varchar DEFAULT 'upcoming', "user_id" integer, "venue_id" integer, "event_type_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_venue_id" ON "aevents" ("venue_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_venue_id_and_event_type_id" ON "aevents" ("venue_id", "event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_user_id" ON "aevents" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_event_type_id" ON "aevents" ("event_type_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aevents" ("id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at")
+                     SELECT "id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at" FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organizer_name" varchar, "event_name" varchar, "description" varchar, "event_date" datetime(6), "event_end_date" datetime(6), "start_time" datetime(6), "end_time" datetime(6), "capacity" integer, "registered_count" integer DEFAULT 0, "base_price" integer, "early_bird_price" integer, "early_bird_end_time" datetime(6), "status" varchar DEFAULT 'upcoming', "user_id" integer, "venue_id" integer, "event_type_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_75f14fef31"
+FOREIGN KEY ("event_type_id")
+  REFERENCES "event_types" ("id")
+, CONSTRAINT "fk_rails_0cb5590091"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_event_type_id" ON "events" ("event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_user_id" ON "events" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id_and_event_type_id" ON "events" ("venue_id", "event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id" ON "events" ("venue_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "events" ("id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at")
+                     SELECT "id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at" FROM "aevents"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aevents"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevents" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organizer_name" varchar, "event_name" varchar, "description" varchar, "event_date" datetime(6), "event_end_date" datetime(6), "start_time" datetime(6), "end_time" datetime(6), "capacity" integer, "registered_count" integer DEFAULT 0, "base_price" integer, "early_bird_price" integer, "early_bird_end_time" datetime(6), "status" varchar DEFAULT 'upcoming', "user_id" integer, "venue_id" integer, "event_type_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_venue_id" ON "aevents" ("venue_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_venue_id_and_event_type_id" ON "aevents" ("venue_id", "event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_user_id" ON "aevents" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_event_type_id" ON "aevents" ("event_type_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aevents" ("id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at")
+                     SELECT "id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at" FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organizer_name" varchar, "event_name" varchar, "description" varchar, "event_date" datetime(6), "event_end_date" datetime(6), "start_time" datetime(6), "end_time" datetime(6), "capacity" integer, "registered_count" integer DEFAULT 0, "base_price" integer, "early_bird_price" integer, "early_bird_end_time" datetime(6), "status" varchar DEFAULT 'upcoming', "user_id" integer, "venue_id" integer, "event_type_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0cb5590091"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_75f14fef31"
+FOREIGN KEY ("event_type_id")
+  REFERENCES "event_types" ("id")
+, CONSTRAINT "fk_rails_f476266cf4"
+FOREIGN KEY ("venue_id")
+  REFERENCES "venues" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_event_type_id" ON "events" ("event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_user_id" ON "events" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id_and_event_type_id" ON "events" ("venue_id", "event_type_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_venue_id" ON "events" ("venue_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "events" ("id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at")
+                     SELECT "id","organizer_name","event_name","description","event_date","event_end_date","start_time","end_time","capacity","registered_count","base_price","early_bird_price","early_bird_end_time","status","user_id","venue_id","event_type_id","created_at","updated_at" FROM "aevents"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aevents"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apayments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_booking_id" integer NOT NULL, "total_amount" decimal(10,2), "payment_status" varchar, "payment_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_apayments_on_event_booking_id" ON "apayments" ("event_booking_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "apayments" ("id","event_booking_id","total_amount","payment_status","payment_date","created_at","updated_at")
+                     SELECT "id","event_booking_id","total_amount","payment_status","payment_date","created_at","updated_at" FROM "payments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "payments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "payments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_booking_id" integer NOT NULL, "total_amount" decimal(10,2), "payment_status" varchar, "payment_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_90ed0808db"
+FOREIGN KEY ("event_booking_id")
+  REFERENCES "event_bookings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_payments_on_event_booking_id" ON "payments" ("event_booking_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "payments" ("id","event_booking_id","total_amount","payment_status","payment_date","created_at","updated_at")
+                     SELECT "id","event_booking_id","total_amount","payment_status","payment_date","created_at","updated_at" FROM "apayments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "apayments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "surname" varchar, "email" varchar, "phone_no" varchar, "password_digest" varchar, "role_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_role_id" ON "ausers" ("role_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_lower_email" ON "ausers" (LOWER(email))[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ausers" ("id","first_name","surname","email","phone_no","password_digest","role_id","created_at","updated_at")
+                     SELECT "id","first_name","surname","email","phone_no","password_digest","role_id","created_at","updated_at" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "surname" varchar, "email" varchar, "phone_no" varchar, "password_digest" varchar, "role_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_lower_email" ON "users" (LOWER(email))[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "users" ("id","first_name","surname","email","phone_no","password_digest","role_id","created_at","updated_at")
+                     SELECT "id","first_name","surname","email","phone_no","password_digest","role_id","created_at","updated_at" FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250512104817)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250429101859),
+(20250429053009),
+(20250429043617),
+(20250429043003),
+(20250428114402),
+(20250428104538),
+(20250428091447),
+(20250428063908),
+(20250423120636),
+(20250421085617),
+(20250421073811),
+(20250421065910),
+(20250421061123),
+(20250421054905),
+(20250421053707),
+(20250421052744);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-05-12 11:26:17.758816', '2025-05-12 11:26:17.758818') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '610e4fe9707a3f267573a6b86962d9dd5470abde', '2025-05-12 11:26:17.761726', '2025-05-12 11:26:17.761727') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "abc123"], ["LIMIT", 1]]
+  [1m[36mDiscountCode Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "INVALID_CODE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "user"], ["created_at", "2025-05-12 11:29:58.223286"], ["updated_at", "2025-05-12 11:29:58.223286"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111114"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Lilly"], ["surname", "Schoen"], ["email", "[FILTERED]"], ["phone_no", "1111111114"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.227580"], ["updated_at", "2025-05-12 11:29:58.227580"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.3ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.230691"], ["updated_at", "2025-05-12 11:29:58.230691"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.2ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.233026"], ["updated_at", "2025-05-12 11:29:58.233026"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 4"], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("organizer_name", "event_name", "description", "event_date", "event_end_date", "start_time", "end_time", "capacity", "registered_count", "base_price", "early_bird_price", "early_bird_end_time", "status", "user_id", "venue_id", "event_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["organizer_name", "Prof. Sebastian Cormier"], ["event_name", "Tech Conference 4"], ["description", "Dolorem nisi itaque. Est nihil aut. Voluptatem temporibus quo."], ["event_date", "2025-05-15 11:00:00"], ["event_end_date", "2025-05-17 11:00:00"], ["start_time", "2025-05-15 11:00:00"], ["end_time", "2025-05-15 13:00:00"], ["capacity", 359], ["registered_count", 0], ["base_price", 32], ["early_bird_price", 22], ["early_bird_end_time", "2025-05-14 11:00:00"], ["status", "upcoming"], ["user_id", 1], ["venue_id", 1], ["event_type_id", 1], ["created_at", "2025-05-12 11:29:58.239294"], ["updated_at", "2025-05-12 11:29:58.239294"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiscountCode Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "ABC123XYZ"], ["LIMIT", 1]]
+  [1m[36mDiscountCode Create (0.1ms)[0m  [1m[32mINSERT INTO "discount_codes" ("code", "discount_percentage", "start_date", "end_date", "max_uses", "used_count", "status", "event_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["code", "ABC123XYZ"], ["discount_percentage", 6], ["start_date", "2025-05-14 11:29:58.217873"], ["end_date", "2025-05-22 11:29:58.218668"], ["max_uses", 100], ["used_count", 0], ["status", "active"], ["event_id", 1], ["user_id", 1], ["created_at", "2025-05-12 11:29:58.251342"], ["updated_at", "2025-05-12 11:29:58.251342"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "ABC123XYZ"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT4"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT5"], ["LIMIT", 1]]
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT5"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT6"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT7"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT8"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT9"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT10"], ["LIMIT", 1]]
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT10"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT11"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mDiscountCode Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "discount_codes" WHERE "discount_codes"."code" = ? LIMIT ?[0m  [["code", "DISCOUNT12"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "admin"], ["created_at", "2025-05-12 11:29:58.359378"], ["updated_at", "2025-05-12 11:29:58.359378"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111115"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Paige"], ["surname", "Kirlin"], ["email", "[FILTERED]"], ["phone_no", "1111111115"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.373460"], ["updated_at", "2025-05-12 11:29:58.373460"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.2ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.376902"], ["updated_at", "2025-05-12 11:29:58.376902"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (1.0ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.380417"], ["updated_at", "2025-05-12 11:29:58.380417"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 15"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.6ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "user"], ["created_at", "2025-05-12 11:29:58.402557"], ["updated_at", "2025-05-12 11:29:58.402557"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111116"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Becki"], ["surname", "Ruecker"], ["email", "[FILTERED]"], ["phone_no", "1111111116"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.421414"], ["updated_at", "2025-05-12 11:29:58.421414"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.2ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.422924"], ["updated_at", "2025-05-12 11:29:58.422924"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.1ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.424336"], ["updated_at", "2025-05-12 11:29:58.424336"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 16"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "organizer"], ["created_at", "2025-05-12 11:29:58.430905"], ["updated_at", "2025-05-12 11:29:58.430905"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111117"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Raul"], ["surname", "Luettgen"], ["email", "[FILTERED]"], ["phone_no", "1111111117"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.434863"], ["updated_at", "2025-05-12 11:29:58.434863"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.2ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.436697"], ["updated_at", "2025-05-12 11:29:58.436697"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.1ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.438229"], ["updated_at", "2025-05-12 11:29:58.438229"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 17"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.2ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "admin"], ["created_at", "2025-05-12 11:29:58.450630"], ["updated_at", "2025-05-12 11:29:58.450630"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111118"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Brandon"], ["surname", "Krajcik"], ["email", "[FILTERED]"], ["phone_no", "1111111118"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.452632"], ["updated_at", "2025-05-12 11:29:58.452632"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.3ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.455318"], ["updated_at", "2025-05-12 11:29:58.455318"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.1ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.457127"], ["updated_at", "2025-05-12 11:29:58.457127"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Unique Event"], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.2ms)[0m  [1m[32mINSERT INTO "events" ("organizer_name", "event_name", "description", "event_date", "event_end_date", "start_time", "end_time", "capacity", "registered_count", "base_price", "early_bird_price", "early_bird_end_time", "status", "user_id", "venue_id", "event_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["organizer_name", "Marian Crona"], ["event_name", "Unique Event"], ["description", "Quos sed corrupti. Officia quae quaerat. Earum non sint."], ["event_date", "2025-05-15 11:00:00"], ["event_end_date", "2025-05-15 13:00:00"], ["start_time", "2025-05-15 11:00:00"], ["end_time", "2025-05-15 13:00:00"], ["capacity", 329], ["registered_count", 0], ["base_price", 32], ["early_bird_price", 22], ["early_bird_end_time", "2025-05-14 11:00:00"], ["status", "upcoming"], ["user_id", 1], ["venue_id", 1], ["event_type_id", 1], ["created_at", "2025-05-12 11:29:58.459736"], ["updated_at", "2025-05-12 11:29:58.459736"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Unique Event"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.2ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "user"], ["created_at", "2025-05-12 11:29:58.471998"], ["updated_at", "2025-05-12 11:29:58.471998"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111119"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Shayne"], ["surname", "Konopelski"], ["email", "[FILTERED]"], ["phone_no", "1111111119"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.476187"], ["updated_at", "2025-05-12 11:29:58.476187"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.1ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.477563"], ["updated_at", "2025-05-12 11:29:58.477563"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.2ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.478809"], ["updated_at", "2025-05-12 11:29:58.478809"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 18"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "organizer"], ["created_at", "2025-05-12 11:29:58.487977"], ["updated_at", "2025-05-12 11:29:58.487977"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111120"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Buck"], ["surname", "Labadie"], ["email", "[FILTERED]"], ["phone_no", "1111111120"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.489773"], ["updated_at", "2025-05-12 11:29:58.489773"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.1ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.491032"], ["updated_at", "2025-05-12 11:29:58.491032"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.1ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.492229"], ["updated_at", "2025-05-12 11:29:58.492229"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 19"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "admin"], ["created_at", "2025-05-12 11:29:58.499546"], ["updated_at", "2025-05-12 11:29:58.499546"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111121"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Eddy"], ["surname", "Torp"], ["email", "[FILTERED]"], ["phone_no", "1111111121"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.501837"], ["updated_at", "2025-05-12 11:29:58.501837"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.2ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.502926"], ["updated_at", "2025-05-12 11:29:58.502926"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.2ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.507730"], ["updated_at", "2025-05-12 11:29:58.507730"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 20"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "user"], ["created_at", "2025-05-12 11:29:58.525993"], ["updated_at", "2025-05-12 11:29:58.525993"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111122"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Chet"], ["surname", "Walker"], ["email", "[FILTERED]"], ["phone_no", "1111111122"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.529881"], ["updated_at", "2025-05-12 11:29:58.529881"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.2ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.532632"], ["updated_at", "2025-05-12 11:29:58.532632"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.1ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.533688"], ["updated_at", "2025-05-12 11:29:58.533688"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 21"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "organizer"], ["created_at", "2025-05-12 11:29:58.542717"], ["updated_at", "2025-05-12 11:29:58.542717"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111123"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Kareen"], ["surname", "Littel"], ["email", "[FILTERED]"], ["phone_no", "1111111123"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.546976"], ["updated_at", "2025-05-12 11:29:58.546976"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVenue Create (0.2ms)[0m  [1m[32mINSERT INTO "venues" ("venue_name", "address", "state", "country", "postal_code", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["venue_name", "Grand Hall"], ["address", "hinjewadi"], ["state", "Maharastra"], ["country", "India"], ["postal_code", "12345"], ["created_at", "2025-05-12 11:29:58.548215"], ["updated_at", "2025-05-12 11:29:58.548215"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEventType Create (0.1ms)[0m  [1m[32mINSERT INTO "event_types" ("event_type_name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["event_type_name", "concert"], ["created_at", "2025-05-12 11:29:58.549563"], ["updated_at", "2025-05-12 11:29:58.549563"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Tech Conference 22"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mEvent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.5ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "admin"], ["created_at", "2025-05-12 11:29:58.597616"], ["updated_at", "2025-05-12 11:29:58.597616"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111124"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Alfred"], ["surname", "Bradtke"], ["email", "[FILTERED]"], ["phone_no", "1111111124"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.601177"], ["updated_at", "2025-05-12 11:29:58.601177"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["email", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? AND "users"."id" != ? LIMIT ?[0m  [["phone_no", "1111111124"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111125"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111126"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.2ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "admin"], ["created_at", "2025-05-12 11:29:58.642349"], ["updated_at", "2025-05-12 11:29:58.642349"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111127"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Billie"], ["surname", "Jenkins"], ["email", "[FILTERED]"], ["phone_no", "1111111127"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.644502"], ["updated_at", "2025-05-12 11:29:58.644502"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111128"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111129"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111130"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111131"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "1111111132"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Create (0.2ms)[0m  [1m[32mINSERT INTO "roles" ("role_type", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["role_type", "user"], ["created_at", "2025-05-12 11:29:58.676196"], ["updated_at", "2025-05-12 11:29:58.676196"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "7800562273"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "surname", "email", "phone_no", "password_digest", "role_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["first_name", "Stewart"], ["surname", "Hermiston"], ["email", "[FILTERED]"], ["phone_no", "7800562273"], ["password_digest", "[FILTERED]"], ["role_id", 1], ["created_at", "2025-05-12 11:29:58.679560"], ["updated_at", "2025-05-12 11:29:58.679560"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "7800562273"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."phone_no" = ? LIMIT ?[0m  [["phone_no", "87534abc!"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
