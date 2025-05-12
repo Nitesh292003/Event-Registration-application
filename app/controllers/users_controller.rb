@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UsersController < BaseController
   skip_before_action :authenticate_request, only: [:create]
-  before_action :set_user, only: [:show, :destroy, :update]
+  before_action :set_user, only: %i[show destroy update]
 
   def index
     @users = User.all

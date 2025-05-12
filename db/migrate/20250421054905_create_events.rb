@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateEvents < ActiveRecord::Migration[8.0]
   def change
     create_table :events do |t|
@@ -16,7 +18,7 @@ class CreateEvents < ActiveRecord::Migration[8.0]
       t.string :status, default: 'upcoming'
       t.references :user, foreign_key: true
       t.references :venue, foreign_key: true
-      t.references :event_type,foreign_key: true
+      t.references :event_type, foreign_key: true
 
       t.timestamps
     end

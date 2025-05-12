@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PriceCalculatorsController < ApplicationController
   def total_price
     max_number_of_tickets = 4
@@ -5,7 +7,7 @@ class PriceCalculatorsController < ApplicationController
     event = Event.find_by(id: params[:event_id])
 
     if event.nil?
-      render json: { error: "Event not found" }, status: :not_found
+      render json: { error: 'Event not found' }, status: :not_found
       return
     end
 
@@ -41,7 +43,7 @@ class PriceCalculatorsController < ApplicationController
       discounted_price = (total_price * event.early_bird_price) / 100
       render json: { total_price: discounted_price }
     else
-      render json: { error: "You are not eligible for Early Bird Discount" }, status: :forbidden
+      render json: { error: 'You are not eligible for Early Bird Discount' }, status: :forbidden
     end
   end
 
@@ -50,12 +52,12 @@ class PriceCalculatorsController < ApplicationController
     total_price = params[:total_price].to_f
 
     if discount_code.nil? ||
-       discount_code.status != "active" ||
+       discount_code.status != 'active' ||
        discount_code.used_count >= discount_code.max_uses ||
        Time.current < discount_code.start_date ||
        Time.current > discount_code.end_date
 
-      render json: { error: "Discount code is not valid or expired" }, status: :forbidden
+      render json: { error: 'Discount code is not valid or expired' }, status: :forbidden
       return
     end
 

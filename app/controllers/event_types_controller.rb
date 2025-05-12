@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventTypesController < BaseController
   before_action :set_event_type, only: %i[update destroy]
   load_and_authorize_resource
