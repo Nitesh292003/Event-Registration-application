@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDisocuntCodes < ActiveRecord::Migration[8.0]
   def change
     create_table :disocunt_codes do |t|
@@ -10,7 +12,7 @@ class CreateDisocuntCodes < ActiveRecord::Migration[8.0]
       t.references :event, foreign_key: true
       t.references :user, foreign_key: true
       t.string :status, default: 'active'
-     
+
       t.timestamps
     end
   end

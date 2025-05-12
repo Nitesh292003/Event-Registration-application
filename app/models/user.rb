@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   include JwtConcern
   has_secure_password
@@ -7,7 +9,6 @@ class User < ApplicationRecord
   has_many :event_types
   has_many :events
   has_many :discount_codes
-
 
   # Associations
 
@@ -25,31 +26,28 @@ class User < ApplicationRecord
   validates :email,
             format: {
               with: URI::MailTo::EMAIL_REGEXP,
-              message: "must be a valid email address"
+              message: 'must be a valid email address'
             },
-            uniqueness: { message: "is already in use by another user" }
+            uniqueness: { message: 'is already in use by another user' }
 
   validates :phone_no,
             format: {
               with: /\A[0-9]{10}\z/,
-              message: "must be a valid 10-digit phone number without spaces or special characters"
+              message: 'must be a valid 10-digit phone number without spaces or special characters'
             },
-            uniqueness: { message: "is already in use by another user" }
+            uniqueness: { message: 'is already in use by another user' }
   validates :password,
-            length: { minimum: 6, message: "must be at least 6 characters long" }
+            length: { minimum: 6, message: 'must be at least 6 characters long' }
 
+  def is_admin?
+    role_id == 1
+  end
 
+  def is_user?
+    role_id == 2
+  end
 
-
-            def is_admin?
-              role_id == 1
-            end
-
-            def is_user?
-              role_id == 2
-            end
-
-            def is_organizer?
-              role_id == 3
-            end
+  def is_organizer?
+    role_id == 3
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDiscountCodeTransactions < ActiveRecord::Migration[8.0]
   def change
     create_table :discount_code_transactions do |t|
