@@ -3,7 +3,9 @@
 class RolesController < BaseController
   skip_before_action :verify_authenticity_token
   before_action :set_role, only: %i[show destroy update]
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
+  skip_before_action :authenticate_request, only: [:create]
+
 
   def index
     @roles = Role.all

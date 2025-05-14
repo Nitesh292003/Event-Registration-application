@@ -8,5 +8,6 @@ FactoryBot.define do
     sequence(:phone_no) { |n| n.to_s.rjust(10, '1') }
     sequence(:password) { |n| "securePass#{n}" }
     association :role, factory: :role
+  
   end
 end

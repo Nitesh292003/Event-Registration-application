@@ -15,6 +15,14 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 
+# Load all support files
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+RSpec.configure do |config|
+  config.include AuthHelpers
+end
+
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
